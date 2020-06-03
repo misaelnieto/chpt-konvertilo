@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversión de capítulos CHPT</title>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x sticky" data-sticky>
+        <div class="large-12 cell">
+          <div id="messages" class="callout hide"></div>
+        </div>
+      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <h1>Conversión de capítulos CHPT</h1>
+        </div>
+      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="large-5 cell">
+          <textarea id="chpt" placeholder="Paste the CHPT content here."></textarea>
+          <button id="open" class="expanded button">Open file</button>
+        </div>
+        <div class="large-2 cell text-center">
+          <h3>Formato</h3>
+          <button id="toXML" class="expanded warning action button" disabled>Matroska XML</button>
+          <button id="toAudacity" class="expanded warning action button" disabled>Audacity</button>
+        </div>
+        <div class="large-5 cell">
+          <textarea id="result"></textarea>
+          <button id="copy" class="button" disabled="">Copy text</button>
+          <button id="download" class="button" disabled="">Download as file</button>
+        </div>
+      </div>
+    </div>
+    <input type="file" id="fileopen" class="hide">
+    <script src="js/base.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
