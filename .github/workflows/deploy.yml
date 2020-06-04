@@ -8,7 +8,7 @@ on:
 
 jobs:
   run-css-lint:
-    runs-on: vpgrp/linter
+    runs-on: vpgrp/linter:css
     steps:
       - name: GitHub Checkout
         uses: actions/checkout@v1
