@@ -1,0 +1,27 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  run-css-lint:
+    runs-on: vpgrp/linter
+    steps:
+      - name: GitHub Checkout
+        uses: actions/checkout@v1
+      - name: Run linters
+        run: |
+          /usr/local/bin/stylelint --syntax=css css/app.css
+          /usr/local/bin/stylelint --syntax=html index.html
+        # run:  tidy -qe index.html
+      # - name: Rsync the build
+      #   uses: Pendect/action-rsyncer@v1.1.0
+      #   env:
+      #     DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+      #   with:
+      #     src: _site/
+      #     # Remote server and path. i.e user@server.com:/var/www/server.com/
+      #     dest: nnieto@opal3.opalstack.com:/home/nnieto/apps/blog_noenieto_com/
