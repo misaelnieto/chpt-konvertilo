@@ -1,0 +1,23 @@
+{
+  "name": "chpt-konvertilo",
+  "version": "1.0.0",
+  "description": "CHPT format converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misaelnieto/chpt-konvertilo.git"
+  },
+  "author": "Noe Nieto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/misaelnieto/chpt-konvertilo/issues"
+  },
+  "homepage": "https://github.com/misaelnieto/chpt-konvertilo#readme",
+  "dependencies": {
+    "eslint": "^7.1.0",
+    "prettier": "^2.0.5"
+  }
+}
