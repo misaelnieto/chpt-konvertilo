@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+
       # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
         run: npm install
@@ -28,12 +29,17 @@ jobs:
           eslint: true
           prettier: true
 
-        # run:  tidy -qe index.html
-      # - name: Rsync the build
-      #   uses: Pendect/action-rsyncer@v1.1.0
-      #   env:
-      #     DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
-      #   with:
-      #     src: _site/
-      #     # Remote server and path. i.e user@server.com:/var/www/server.com/
-      #     dest: nnieto@opal3.opalstack.com:/home/nnieto/apps/blog_noenieto_com/
+  deploy-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Checkout
+        uses: actions/checkout@v1
+      - name: Rsync the build
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+        with:
+          options: '--exclude-from=.rsyncexclude --delete-excluded'
+          src: .
+          # Remote server and path. i.e user@server.com:/var/www/server.com/
+          dest: ${{secrets.RSYNC_DEST}}
